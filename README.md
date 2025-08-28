@@ -6,7 +6,11 @@
 API para gerenciar tarefas (CRUD) que faz parte para pessoas desenvolvedoras backend júnior.
 
 ## Tecnologias
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 4d216980d194d5e207c08e02209e251aec3ac647
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc.html)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
@@ -41,7 +45,11 @@ O Swagger poderá ser visualizado em [localhost:8080/swagger-ui.html](http://loc
 
 Para fazer as requisições HTTP abaixo, foi utilizada a ferramenta [httpie](https://httpie.io):
 
+<<<<<<< HEAD
 - Criar Tarefa
+=======
+- Criar Tarefa 
+>>>>>>> 4d216980d194d5e207c08e02209e251aec3ac647
 ```
 $ http POST :8080/todos nome="Todo 1" descricao="Desc Todo 1" prioridade=1
 
