@@ -5,6 +5,7 @@ import br.com.joaovitrdos.desafio_todo_list.service.TodosServices;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/todos")
@@ -17,17 +18,18 @@ public class TodoController {
     }
 
     @PostMapping
-    List<Todo> create(@RequestBody Todo todo) {
-        return  todosServices.create(todo);
+    public List<Todo> create(@Valid @RequestBody Todo todo) {
+        return todosServices.create(todo);
     }
+
     @GetMapping
     List<Todo> list(){
         return  todosServices.list();
     }
 
-    @PutMapping
-    List<Todo> update(@RequestBody Todo todo){
-        return  todosServices.update(todo);
+    @PutMapping("{id}")
+    public List<Todo> update(@Valid @PathVariable Long id, @RequestBody Todo todo) {
+        return todosServices.update(id, todo);
     }
 
     @DeleteMapping("{id}")

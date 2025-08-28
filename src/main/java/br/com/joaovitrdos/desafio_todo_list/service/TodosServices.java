@@ -26,13 +26,23 @@ public class TodosServices {
         return todoRepository.findAll(sort);
     }
 
-    public List<Todo> update(Todo todo) {
-            todoRepository.save(todo);
-            return list();
+    public List<Todo> update(Long id, Todo todo) {
+        Todo existing = todoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Todo não encontrado"));
+        existing.setNome(todo.getNome());
+        existing.setDescricao(todo.getDescricao());
+        existing.setRealizado(todo.isRealizado());
+        existing.setPrioridade(todo.getPrioridade());
+        todoRepository.save(existing);
+        return list();
     }
 
     public List<Todo> delete(Long id) {
+        if (!todoRepository.existsById(id)) {
+            throw new IllegalArgumentException("Todo não encontrado");
+        }
         todoRepository.deleteById(id);
         return list();
     }
+
 }
